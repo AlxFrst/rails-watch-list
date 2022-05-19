@@ -1,0 +1,17 @@
+<div class="banner">
+  <div class="container">
+    <h1>Add your movie</h1>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-6">
+        <%= simple_form_for [ @list, @bookmark ] do |f| %>
+          <%= f.input :comment, placeholder: 'Add your comment' %>
+          <%= f.association :movie, input_html: { class: 'select2' } %>
+          <%= f.submit "Add movie", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>
