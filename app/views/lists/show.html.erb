@@ -9,19 +9,24 @@
   </div>
   <div class="row row-cols-1 row-cols-md-2 g-4 movie-list-card">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="example-2 bookmark-card mt-3">
-        <div class="wrapper" style="background-image: url('https://image.tmdb.org/t/p/w500/<%= bookmark.movie.poster_url%>')">
-          <div class="header">
-          </div>
-          <div class="data">
-            <div class="content">
-              <span class="author"><%= bookmark.comment %></span>
-              <h1 class="title"><a href="#"><%= bookmark.movie.title %></a></h1>
-              <p class="text"><%= bookmark.movie.overview %></p>
-            </div>
+      <div class="movie-card">
+        <div class="movie-header" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.tmdb.org/t/p/w500/<%= bookmark.movie.poster_url%>);">
+          <div class="header-icon-container">
           </div>
         </div>
+        <!--movie-header-->
+        <div class="movie-content">
+          <div class="movie-content-header">
+            <h3 class="movie-title"><%= bookmark.movie.title %></h3>
+            <div class="imax-logo"><%= bookmark.movie.rating %> ⭐</div>
+          </div>
+          <div class="movie-info">
+            <p><%= bookmark.movie.overview %></p>
+            <%= link_to "delete", bookmark_path(bookmark), method: :delete, id:"delete-bookmark", class: "hidden" %>
+          </div>
+        </div>
+        <!--movie-content-->
       </div>
-    </a>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  <!--container-->
