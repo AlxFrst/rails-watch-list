@@ -3,14 +3,12 @@
     <h1>Alx Ciné</h1>
   </div>
 </div>
-
 <div class="container my-3">
   <div class="container-header d-flex justify-content-between">
     <h3>My Lists</h3>
     <% # TODO: Change this button for a ERB Link %>
     <a href="<%= new_list_path %>" class="btn btn-success">Create a movie list</a>
   </div>
-
   <div class="list-container my-3">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% @lists.each do |list|%>
@@ -18,13 +16,13 @@
           <div class="card">
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2059)">
               <%= link_to list.name, list_path(list), id:"card-title" %>
-              <%= link_to "delete", list_path(list), method: :delete, id:"delete-list"%>
+              <%= link_to "X", list_path(list), method: :delete, id:"delete-list", data: { confirm: "Are you sure?" }%>
             </div>
           </div>
         </div>
       </a>
-      <% end %>
-      <% # End of the card %>
-    </div>
+    <% end %>
+    <% # End of the card %>
   </div>
+</div>
 </div>
